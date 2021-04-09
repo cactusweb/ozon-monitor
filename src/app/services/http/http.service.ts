@@ -12,26 +12,26 @@ export class HttpService {
   ) { }
 
   async addProduct( pid ){
-    return await this.http.get( `${this.url}/add?id=${pid}` ).toPromise();
+    return await this.http.get( `/add?id=${pid}` ).toPromise();
   }
 
   async deleteProduct(pid){
-    return await this.http.get( `${this.url}/delete?id=${pid}` ).toPromise();
+    return await this.http.get( `/delete?id=${pid}` ).toPromise();
   }
 
   async getProducts(){
-    return await this.http.get( `${this.url}/get-products` ).toPromise();
+    return await this.http.get( `/get-products` ).toPromise();
   }
 
   async addWH( url ){
-    return await this.http.post( `${this.url}/add-webhook`, { url: url } ).toPromise();
+    return await this.http.post( `/add-webhook`, { url: url } ).toPromise();
   }
 
   async deleteWH(){
-    return await this.http.get( `${this.url}/delete-webhook`).toPromise();
+    return await this.http.get( `/delete-webhook`).toPromise();
   }
 
   async getWH(){
-    return await this.http.get( `${this.url}/webhook` ).toPromise();
+    return await this.http.get( `/webhook` ).toPromise();
   }
 }
