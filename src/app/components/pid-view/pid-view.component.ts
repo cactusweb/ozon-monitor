@@ -9,6 +9,7 @@ import { HttpService } from 'src/app/services/http/http.service';
 })
 export class PidViewComponent implements OnInit {
   products;
+  errorAdd: string = '';
 
   addForm: FormGroup;
 
@@ -22,17 +23,20 @@ export class PidViewComponent implements OnInit {
   }
 
   async getProducts(){
+    this.errorAdd = '';
     await this.http.getProducts()
       .then( w => this.products = w )
       .catch( e => {})
   }
 
   async deleteProduct( pid ){
+    this.errorAdd = '';
     await this.http.deleteProduct( pid )
       .then( () => {
         this.products = this.products.filter( ell => ell.id != pid )
       })
-      .catch( e => {})
+      .catch( e => {
+      })
   }
 
   generateForm(){
@@ -42,13 +46,16 @@ export class PidViewComponent implements OnInit {
   }
 
   async addProduct(){
+    this.errorAdd = '';
     await this.http.addProduct( this.addForm.value.id )
       .then( async () => {
         await this.getProducts();
         this.addForm.reset();
 
       })
-      .catch( e => {} )
+      .catch( e => {
+        this.errorAdd = e.error;
+      } )
   }
 
 

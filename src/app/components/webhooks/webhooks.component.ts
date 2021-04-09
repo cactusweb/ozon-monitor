@@ -10,6 +10,8 @@ import { HttpService } from 'src/app/services/http/http.service';
 export class WebhooksComponent implements OnInit {
   wh: string;
 
+  error: string = '';
+
   addForm: FormGroup;
 
   constructor(
@@ -17,9 +19,12 @@ export class WebhooksComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.generateForm();
+    this.getWH();
   }
 
   async getWH(){
+    this.error = '';
     this.http.getWH()
       .then( (w:any) => this.wh = w.url )
       .catch( e => {})
@@ -27,12 +32,15 @@ export class WebhooksComponent implements OnInit {
 
 
   async addWH(  ){
+    this.error = '';
     this.http.addWH( this.addForm.value.url )
       .then( () => {
         this.wh = this.addForm.value.url;
         this.addForm.reset();
       })
-      .catch( e => {})
+      .catch( e => {
+        this.error = e.error;
+      })
   }
 
   generateForm(){
@@ -42,9 +50,12 @@ export class WebhooksComponent implements OnInit {
   }
 
   async deleteWH(){
+    this.error = '';
     this.http.deleteWH()
       .then( () => this.wh = '' )
-      .catch( e => {})
+      .catch( e => {
+        this.error = e.error;
+      })
   }
 
 }
