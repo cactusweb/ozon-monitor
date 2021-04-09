@@ -39,7 +39,7 @@ export class WebhooksComponent implements OnInit {
         this.addForm.reset();
       })
       .catch( e => {
-        this.error = e.error;
+        this.error = e.error.error;
       })
   }
 
@@ -54,7 +54,7 @@ export class WebhooksComponent implements OnInit {
     this.http.deleteWH()
       .then( () => this.wh = '' )
       .catch( e => {
-        this.error = e.error;
+        this.error = e.error.error;
       })
   }
 

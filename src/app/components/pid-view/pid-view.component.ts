@@ -54,7 +54,7 @@ export class PidViewComponent implements OnInit {
 
       })
       .catch( e => {
-        this.errorAdd = e.error;
+        this.errorAdd = e.error.error;
       } )
   }
 
