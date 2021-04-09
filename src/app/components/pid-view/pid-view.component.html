@@ -4,7 +4,7 @@
         <h5 class="mb-2">Add new monitoring product</h5>
         <form class="row" [formGroup]="addForm" (ngSubmit)="addProduct()">
             <input type="text" class="form-control col-4 mr-2" formControlName="id">
-            <button class="btn btn-outline-success">Add</button> <br>
+            <button class="btn btn-outline-success" [disabled]="addForm.invalid">Add</button> <br>
         </form>
         <div class="alert alert-danger row col-5 mt-1" *ngIf="errorAdd"> {{ errorAdd }} </div>
     </div>
