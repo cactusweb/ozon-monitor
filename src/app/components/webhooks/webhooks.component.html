@@ -1,0 +1,19 @@
+<div class="container mt-4">
+
+    <div class="mt-4 mb-4" *ngIf="!wh">
+        <h5 class="mb-2">Add your webhook</h5>
+        <form class="row" [formGroup]="addForm" (ngSubmit)="addWH()">
+            <input type="text" class="form-control col-4 mr-2" formControlName="url">
+            <button class="btn btn-outline-success">Add</button>
+        </form>
+    </div>
+
+    <div *ngIf="wh">
+        <h5 class="mb-2">Your webhook:</h5>
+        <div class="row">
+            <span class="col-10" target="{{product.id}}"> {{ wh }} </span>
+            <button class="btn btn-outline-danger col-2" (click)="deleteWH()">Delete</button>
+        </div>
+    </div>
+
+</div>

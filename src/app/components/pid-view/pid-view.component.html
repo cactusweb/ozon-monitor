@@ -1,0 +1,19 @@
+<div class="container mb-4">
+
+    <div class="mt-4 mb-4">
+        <h5 class="mb-2">Add new monitoring product</h5>
+        <form class="row" [formGroup]="addForm" (ngSubmit)="addProduct()">
+            <input type="text" class="form-control col-4 mr-2" formControlName="id">
+            <button class="btn btn-outline-success">Add</button>
+        </form>
+    </div>
+
+    <div>
+        <h5 class="mb-2">Monitoring products:</h5>
+        <div class="row mb-2" *ngFor="let product of products">
+            <span class="col-10" target="{{product.id}}"> {{ product.name }} </span>
+            <button class="btn btn-outline-danger col-2" (click)="deleteProduct(product.id)">Delete</button>
+        </div>
+    </div>
+
+</div>

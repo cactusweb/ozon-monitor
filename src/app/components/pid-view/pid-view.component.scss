@@ -1,0 +1,12 @@
+.container > div:last-child{
+
+    .row{ 
+        border-bottom: 1px solid #444444;
+
+        span{
+            display: grid;
+            align-items: center;
+        }
+    }
+
+}
