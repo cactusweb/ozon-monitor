@@ -12,7 +12,7 @@
     <div>
         <h5 class="mb-2">Monitoring products:</h5>
         <div class="row mb-2" *ngFor="let product of products">
-            <span class="col-10" target="{{product.id}}"> {{ product.name }} </span>
+            <span class="col-10 my-auto" target="{{product.id}}"> {{ product.name }} </span>
             <button class="btn btn-outline-danger col-2" (click)="deleteProduct(product.id)">Delete</button>
         </div>
     </div>

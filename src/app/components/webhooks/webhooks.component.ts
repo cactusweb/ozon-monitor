@@ -8,7 +8,7 @@ import { HttpService } from 'src/app/services/http/http.service';
   styleUrls: ['./webhooks.component.scss']
 })
 export class WebhooksComponent implements OnInit {
-  wh: string;
+  wh: string = ''
 
   error: string = '';
 

@@ -1,3 +1,8 @@
 .container{
     margin-top: 70px !important;
 }
+
+.row > span{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

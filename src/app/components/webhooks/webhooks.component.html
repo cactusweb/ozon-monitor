@@ -13,7 +13,7 @@
     <div *ngIf="wh">
         <h5 class="mb-2">Your webhook:</h5>
         <div class="row">
-            <span class="col-10"> {{ wh }} </span>
+            <span class="col-10 my-auto"> {{ wh }} </span>
             <button class="btn btn-outline-danger col-2" (click)="deleteWH()">Delete</button>
         </div>
         <div class="alert alert-danger row col-5 mt-1" *ngIf="error"> {{ error }} </div>
